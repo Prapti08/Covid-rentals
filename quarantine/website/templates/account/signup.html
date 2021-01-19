@@ -1,0 +1,53 @@
+<style>
+
+
+body{
+    background: url('/static/images/hostlogin.jpg');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    height: 100%;
+    /* min-height: 1000%; */
+    opacity: 0.8;
+
+}
+  </style>
+
+
+{% extends "account/base.html" %}
+{% load static %}
+{% load i18n %}
+
+<html>
+
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}" />
+
+{% block head_title %}{% trans "Signup" %}{% endblock %}
+
+{% block content %}
+<head>
+<h1>{% trans "Sign Up" %}</h1>
+</head>
+
+
+  <p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
+
+<form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
+  {% csrf_token %}
+  {{ form.as_p }}
+  {% if redirect_field_value %}
+  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+  {% endif %}
+  <button type="submit">{% trans "Sign Up" %} &raquo;</button>
+</form>
+
+
+
+
+
+
+
+
+{% endblock %}
+
+</html>
