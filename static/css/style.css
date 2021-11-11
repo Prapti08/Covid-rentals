@@ -1,0 +1,17 @@
+.box{
+    padding-left: 20%;
+    padding-top: 10%;
+}
+
+body{
+    background: url('/static/images/host7.jpg');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    min-height: 1000%;
+    opacity: 0.8;
+
+}
+
+.signup{
+  padding-left: 80%;
+  padding-top: 500px;
