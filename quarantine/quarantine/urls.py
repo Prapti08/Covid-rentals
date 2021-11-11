@@ -20,7 +20,9 @@ from . import settings
 from website import views
 
 from django.contrib.staticfiles.urls import static
-from django.contrib.staticfiles.urls import staticfiles_urlpatterns
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns 
+from django.views.static import serve
+from django.conf.urls import url
 
 
 
@@ -48,6 +50,8 @@ urlpatterns = [
     path('test', views.test_view,name='test'),
     path('confirm',views.confirm,name='confirm'),
     path('covidtracker', views.covidView,name='covidtracker'),
+    url(r'^media/(?P<path>.*)$', serve,{'document_root':       settings.MEDIA_ROOT}), 
+    url(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}),
 
 
 
